@@ -1,0 +1,14 @@
+targets:
+  $default:
+    builders:
+      task_1|summary_builder:
+        enabled: true
+
+builders:
+  summary_builder:
+    target: ":task_1"
+    import: "package:task_1/builder.dart"
+    builder_factories: ["summaryBuilder"]
+    build_extensions: {"$lib$": ["summary.g"]}
+    auto_apply: all_packages
+    build_to: source
