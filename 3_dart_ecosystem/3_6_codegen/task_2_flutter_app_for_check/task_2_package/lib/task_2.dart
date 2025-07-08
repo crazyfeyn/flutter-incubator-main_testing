@@ -1,6 +1,4 @@
-import 'package:meta/meta.dart';
+library task_2;
 
-@immutable
-class Serializable {
-  const Serializable();
-}
+export 'src/serializable.dart';
+export 'src/builder.dart';
