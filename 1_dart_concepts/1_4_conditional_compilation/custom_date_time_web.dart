@@ -8,7 +8,10 @@ class CustomDateTime {
       : _milliseconds = DateTime.now().millisecondsSinceEpoch,
         _simulatedMicro = (window.performance.now() * 1000).toInt() % 1000;
 
-  int get microsecondsSinceEpoch => _milliseconds * 1000 + _simulatedMicro;
+  int get microsecondsSinceEpoch {
+    print('--00000--');
+    return _milliseconds * 1000 + _simulatedMicro;
+  }
 
   @override
   String toString() =>
