@@ -5,6 +5,3 @@ void main() {
   print('Time: ${time.toString()}');
   print('Microseconds since epoch: ${time.microsecondsSinceEpoch}');
 }
-
-
-//!I used AI to complete it and am ready to explain what's going inside

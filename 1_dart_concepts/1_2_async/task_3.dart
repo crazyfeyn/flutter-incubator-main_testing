@@ -1,7 +1,7 @@
-import 'dart:convert';
 import 'dart:io';
+import 'dart:convert';
 
-void main() async {
+void main(List<String> args) async {
   final server = await HttpServer.bind('localhost', 8080);
   print('Server running on http://${server.address.host}:${server.port}');
 

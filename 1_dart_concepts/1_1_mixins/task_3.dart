@@ -1,4 +1,3 @@
-/// Object equipable by a [Character].
 abstract class Item {}
 
 mixin Weapon on Item {
@@ -9,11 +8,8 @@ mixin Armor on Item {
 }
 
 mixin HeadEquipment on Item {}
-
 mixin TorsoEquipment on Item {}
-
 mixin LegEquipment on Item {}
-
 mixin FootEquipment on Item {}
 
 class Sword extends Item with Weapon {
@@ -67,7 +63,6 @@ class Boots extends Item with Armor, FootEquipment {
   int get defense => defenses;
 }
 
-/// Entity equipping [Item]s.
 class Character {
   Item? leftHand;
   Item? rightHand;
@@ -75,12 +70,9 @@ class Character {
   Item? torso;
   Item? legs;
   Item? shoes;
-
-  /// Returns all the [Item]s equipped by this [Character].
   Iterable<Item> get equipped =>
       [leftHand, rightHand, hat, torso, legs, shoes].whereType<Item>();
 
-  /// Returns the total damage of this [Character].
   int get damage {
     int totalDamage = 0;
     for (final item in equipped) {
@@ -91,7 +83,6 @@ class Character {
     return totalDamage;
   }
 
-  /// Returns the total defense of this [Character].
   int get defense {
     int totalDefence = 0;
     for (final item in equipped) {
@@ -102,9 +93,6 @@ class Character {
     return totalDefence;
   }
 
-  /// Equips the provided [item], meaning putting it to the corresponding slot.
-  ///
-  /// If there's already a slot occupied, then throws a [OverflowException].
   void equip(Item item) {
     if (item is Weapon) {
       if (leftHand == null) {
@@ -161,19 +149,11 @@ class Character {
   }
 }
 
-/// [Exception] indicating there's no place left in the [Character]'s slot.
 class OverflowException implements Exception {}
 
 void main() {
-  // Implement mixins to differentiate [Item]s into separate categories to be
-  // equipped by a [Character]: weapons should have some damage property, while
-  // armor should have some defense property.
-  //
-  // [Character] can equip weapons into hands, helmets onto hat, etc.
-
   final character = Character();
 
-  // Create some items
   final sword = Sword(damages: 10);
   final bow = Bow(damages: 8);
   final helmet = Helmet(defenses: 5);
@@ -184,7 +164,6 @@ void main() {
   print(character.damage);
   print(character.defense);
 
-  // Equipping
   try {
     character.equip(sword);
     character.equip(bow);

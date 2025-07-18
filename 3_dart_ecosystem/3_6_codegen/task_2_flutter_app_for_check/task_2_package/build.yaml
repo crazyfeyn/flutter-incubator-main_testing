@@ -1,7 +1,0 @@
-builders:
-  json_serializable:
-    import: "package:task_2/builder.dart"
-    builder_factories: ["serializableBuilder"]
-    build_extensions: { ".dart": [ ".g.dart" ] }
-    auto_apply: dependents
-    build_to: source

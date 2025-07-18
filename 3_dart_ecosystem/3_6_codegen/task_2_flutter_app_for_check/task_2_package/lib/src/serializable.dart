@@ -1,3 +1,0 @@
-class Serializable {
-  const Serializable();
-}
